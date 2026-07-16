@@ -53,7 +53,7 @@ You can check out the live working demo of this project here: 👉 [Trakio Live 
 * **Frontend:** Blade Templates, HTML, CSS, JavaScript, Bootstrap
 * **Charts:** Chart.js
 * **ORM:** Eloquent
-* **Server:** XAMPP (local) / Render + Aiven MySQL (deployment)
+* **Server:** XAMPP (local) / infinityfree (deployment)
 
 ## ⚙️ Setup Instructions
 
