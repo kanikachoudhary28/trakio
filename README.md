@@ -1,66 +1,135 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎓 Trakio (SPEWS) - Student Performance Early Warning System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A web-based multi-role academic management system built with Laravel, designed to track student attendance, marks, and performance, and automatically generate early warnings for students at risk.
 
-## About Laravel
+## 🌐 Live Demo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+You can check out the live working demo of this project here: 👉 [Trakio Live Demo](https://studentperformace.wuaze.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🔑 User Roles
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👨‍💼 Admin
 
-## Learning Laravel
+* Add and manage students (manually or in bulk via CSV import)
+* Add and manage teachers
+* Create and manage batches
+* Assign teachers to batches
+* Manage subjects
+* Configure and generate warnings for students
+* Full control over the platform
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 👩‍🏫 Teacher
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+* Mark and manage student attendance
+* Add and manage student marks
+* View student performance reports
+* View and manage assigned students
+* Manage own profile
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 👤 Student
 
-## Laravel Sponsors
+* View personal profile and dashboard
+* Track attendance record
+* View marks and academic results
+* View performance charts and analytics
+* View warnings issued (if any)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ✨ Features
 
-### Premium Partners
+* 3-role authentication system (Admin, Teacher, Student)
+* Session-based authentication with roll number as default password and forced password change on first login
+* Bulk student onboarding via CSV import, or manual entry
+* Batch management with teacher-to-batch assignment
+* Attendance tracking module
+* Marks management module
+* Automatic, configurable early-warning generation based on attendance and marks thresholds
+* Interactive performance dashboards using Chart.js
+* Role-based access control and middleware-protected routes
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 🛠️ Tech Stack
 
-## Contributing
+* **Backend:** PHP, Laravel
+* **Database:** MySQL
+* **Frontend:** Blade Templates, HTML, CSS, JavaScript, Bootstrap
+* **Charts:** Chart.js
+* **ORM:** Eloquent
+* **Server:** XAMPP (local) / Render + Aiven MySQL (deployment)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ⚙️ Setup Instructions
 
-## Code of Conduct
+1. **Clone the repository**
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+git clone https://github.com/kanikachoudhary28/trakio.git
+```
 
-## Security Vulnerabilities
+2. **Install dependencies**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
+composer install
+npm install
+```
 
-## License
+3. **Configure environment**
+   * Copy `.env.example` → `.env`
+   * Fill in your database credentials in `.env`
+   * Generate app key:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+php artisan key:generate
+```
+
+4. **Set up database**
+   * Create a new database in MySQL/phpMyAdmin
+   * Run migrations:
+
+```
+php artisan migrate
+```
+
+5. **Build frontend assets**
+
+```
+npm run dev
+```
+
+6. **Run the project**
+
+```
+php artisan serve
+```
+
+Open `http://localhost:8000` in your browser.
+
+## 📂 Project Structure
+
+```
+trakio/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Admin/          # Batch, Subject, Teacher, Warning controllers
+│   │   │   ├── Auth/           # ForgotPasswordController
+│   │   │   ├── Student/        # StudentDashboardController
+│   │   │   └── Teacher/        # Attendance, Marks, Performance, Profile controllers
+│   │   └── Middleware/
+│   │       └── RoleMiddleware.php
+│   └── Models/                 # Student, Teacher, Batch, Subject, Attendance, Mark, Warning, etc.
+├── database/
+│   ├── migrations/             # Batches, students, subjects, attendance, marks, warnings, etc.
+│   └── seeders/
+├── resources/
+│   └── views/
+│       ├── admin/              # Batches, students, teachers, subjects, warnings, attendance
+│       ├── teacher/            # Attendance, marks, performance, students
+│       ├── student/            # Dashboard, attendance, results, warnings, profile
+│       ├── auth/               # Login, forgot password
+│       └── layouts/            # Role-based layouts
+├── routes/
+│   └── web.php
+└── public/
+```
+
+## 👩‍💻 Developer
+
+Kanika
